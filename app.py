@@ -29,7 +29,8 @@ class ScraperApp:
         options.add_argument("--incognito")
         options.add_argument("--ignore-certificate-errors")
         options.add_argument("--window-size=1920x1080")
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        self.driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
+
 
     def close_driver(self):
         if self.driver:
