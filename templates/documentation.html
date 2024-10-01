@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraper API Documentation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        h1, h2, h3 {
+            color: #007bff;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            text-align: center;
+            background-color: #343a40;
+            color: white;
+        }
+        .social-logos img {
+            width: 40px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Scraper API Documentation</h1>
+    <hr>
+
+    <section>
+        <h2>Overview</h2>
+        <p>The Scraper API is a web scraping tool built using Flask and Selenium. It allows users to scrape data from provided URLs and extract various elements like paragraphs, headings, images, and more, including content from social media platforms.</p>
+    </section>
+
+    <section>
+        <h2>Endpoints</h2>
+        <h3>/scrape</h3>
+        <p>This endpoint accepts a POST request with a JSON payload containing URLs to scrape.</p>
+        <h4>Request Format</h4>
+        <pre>
+{
+    "urls": ["http://example.com", "http://another-example.com"]
+}
+        </pre>
+        <h4>Response Format</h4>
+        <pre>
+{
+    "http://example.com": {
+        "paragraphs": "Extracted paragraph text...",
+        "urls": ["http://referral1.com", "http://referral2.com"],
+        "headings": ["Heading 1", "Heading 2"],
+        "images": ["http://image1.com", "http://image2.com"],
+        "list_items": ["Item 1", "Item 2"],
+        "span_texts": ["Span text 1", "Span text 2"],
+        "table_data": [["Row 1 Col 1", "Row 1 Col 2"], ["Row 2 Col 1", "Row 2 Col 2"]]
+    },
+    "http://another-example.com": {
+        "error": "Error message..."
+    }
+}
+        </pre>
+    </section>
+
+    <section>
+        <h2>Social Media Scraping</h2>
+        <p>The Scraper App can also extract data from popular social media platforms, including:</p>
+        <div class="social-logos text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+        </div>
+        <p>To scrape content from these platforms, simply include the corresponding URLs in your request.</p>
+    </section>
+
+    <section>
+        <h2>Usage</h2>
+        <ol>
+            <li>Run the Flask application by executing <code>python app.py</code>.</li>
+            <li>Make a POST request to <code>http://127.0.0.1:5000/scrape</code> with the required JSON payload.</li>
+            <li>Receive a JSON response with the scraped data.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Key Features</h2>
+        <ul>
+            <li>Extracts paragraphs, URLs, headings, images, list items, span texts, and table data.</li>
+            <li>Filters referral URLs to include only those from <code>snipnutrition.com</code>.</li>
+            <li>Handles errors gracefully and returns informative messages.</li>
+            <li>Supports scraping from social media sites like Facebook, Instagram, and Twitter.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Scraper API. All rights reserved.</p>
+    </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
