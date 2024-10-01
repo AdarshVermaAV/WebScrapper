@@ -1,30 +1,26 @@
-# Use the official Python image from the Docker Hub
+# Use the official Python image as a base
 FROM python:3.11-slim
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Install required packages for Chrome
+# Install system dependencies (like Chromium)
 RUN apt-get update && apt-get install -y \
     chromium \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy the requirements file into the container
+# Copy the requirements file and install Python dependencies
 COPY requirements.txt .
-
-# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy specific application files into the container
+# Copy the application files into the container
 COPY app.py .
-COPY templates/ ./templates/  # Copy the entire templates directory
+COPY templates/ ./templates/documentation.html  # Ensure this path is correct
+
 
 # Set environment variables for Chrome
 ENV CHROME_BIN=/usr/bin/chromium
-ENV DISPLAY=:99
+ENV CHROME_PATH=/usr/bin/chromium
 
-# Specify the command to run your app
+# Command to run your app
 CMD ["python", "app.py"]
-
-# Expose the port on which your app runs
-EXPOSE 5000
