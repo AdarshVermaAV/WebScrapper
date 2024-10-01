@@ -23,13 +23,13 @@ class ScraperApp:
 
     def create_driver(self):
         options = Options()
-        options.add_argument("--headless")       
+        options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
         options.add_argument("--incognito")
         options.add_argument("--ignore-certificate-errors")
         options.add_argument("--window-size=1920x1080")
-        self.driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 
     def close_driver(self):
