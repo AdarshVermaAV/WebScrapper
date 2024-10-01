@@ -15,7 +15,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application files into the container
 COPY app.py .
-COPY templates/ .  # Copy the entire templates directory
+
 
 
 # Set environment variables for Chrome
