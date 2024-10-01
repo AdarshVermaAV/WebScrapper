@@ -1,5 +1,3 @@
-import tkinter as tk
-from tkinter import messagebox, scrolledtext
 from flask import Flask, request, jsonify, render_template
 from selenium import webdriver
 from selenium.webdriver.common.by import By
