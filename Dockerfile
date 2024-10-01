@@ -16,6 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the application files into the container
 COPY app.py .
 
+# Assuming the Dockerfile is in the root of your project
+COPY templates/ ./templates/
 
 
 # Set environment variables for Chrome
